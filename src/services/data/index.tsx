@@ -1,0 +1,7 @@
+export {default as apiUser} from "../data/User"
+export {default as apiReserva} from "../data/Reserva"
+export {default as apiTreino} from "../data/Treino"
+export {default as apiNoticia} from "../data/Noticia"
+export {default as apiTime} from "../data/Time"
+export {default as apiMensagem} from "../data/Mensagem"
+export {default as apiCronograma} from "../data/Cronograma"
