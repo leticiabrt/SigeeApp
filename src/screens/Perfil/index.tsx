@@ -38,7 +38,7 @@ export const Perfil = () => {
   const [modalEtidarVisible, setModalEtidarVisible] = useState(false);
   const [notificacoes, setNotificacoes] = useState<Notificacao[]>([]);
 
-  const [recarregar, setRecarregar] = useState(0)
+  const [recarregar, setRecarregar] = useState(false)
 
   const sms = require('../../assets/sms.png');
 
@@ -49,7 +49,7 @@ export const Perfil = () => {
   const [treino, setTreino] = useState<ITreino[]>([])
   useEffect(() => {
     setLoading(true)
-    async function loadMessage() {
+    async function loadTreinos() {
       try {
         const response = await apiTreino.mostrarCheckins({ idAluno: user?.data.id })
         setTreino(response.data.dados)
@@ -60,7 +60,7 @@ export const Perfil = () => {
     }
     setLoadingPage(false)
     setLoading(false)
-    loadMessage()
+    loadTreinos()
   }, [])
 
   /*Lógica para cancelar um checkin*/
@@ -116,13 +116,13 @@ export const Perfil = () => {
   const [reserva, setReserva] = useState<IReserva[]>([])
   useEffect(() => {
     setLoading(true)
-    async function loadMessage() {
+    async function loadReservas() {
       const response = await apiReserva.index()
       setReserva(response.data.dados)
     }
     setLoadingPage(false)
     setLoading(false)
-    loadMessage()
+    loadReservas()
   }, [])
 
   interface itemReserva {
@@ -194,19 +194,19 @@ export const Perfil = () => {
   const [mensagens, setMensagens] = useState<IMensagem[]>([])
   useEffect(() => {
     setLoading(true)
-    async function loadTimes() {
+    async function loadMensagens() {
       try {
         const response = await apiMensagem.index({ idAluno: user?.data.id })
         setMensagens(response.data.mensagens)
-        
+        console.log(response.data)
       } catch (error) {
         const err = error as AxiosError
         const msg = err.response?.data as string
+        console.log(msg)
       }
     }
     setLoading(false)
-    setLoadingPage(false)
-    loadTimes()
+    loadMensagens()
     setRecarregar(false)
   }, [recarregar])
 
@@ -230,7 +230,7 @@ export const Perfil = () => {
   })
 
   const [loadingPage, setLoadingPage] = useState(true);
-  console.log(user?.data.tipo)
+
   return (
     <ScrollView style={styles.container}>
       {loadingPage && (
@@ -397,7 +397,7 @@ export const Perfil = () => {
                 )
               }
             </ScrollView>
-            <TouchableOpacity onPress={() => setRecarregar(recarregar + 1)}>
+            <TouchableOpacity onPress={() => setRecarregar(true)}>
               <Text style={styles.textoRecarregar}>Recarregar página</Text>
             </TouchableOpacity>
             <Button title="Fechar" onPress={() => setModalNotificacoesVisible(false)} />

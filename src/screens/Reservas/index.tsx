@@ -32,7 +32,7 @@ export function Reservas() {
     const [local, setLocal] = useState(false);
     const [tipo, setTipo] = useState(false);
 
-    const [recarregar, setRecarregar] = useState(0)
+    const [recarregar, setRecarregar] = useState(false)
 
     /*Variaveis pra utilizar o relógio como campo*/
     const [horarioInicio, setHorarioInicio] = useState(new Date())
@@ -48,6 +48,7 @@ export function Reservas() {
     const [inicioSemana, setInicioSemana] = useState('')
     const [fimSemana, setFimSemana] = useState('')
     const { setLoading, user } = useAuth()
+
     useEffect(() => {
         setLoading(true)
         async function loadMessage() {
@@ -221,7 +222,7 @@ export function Reservas() {
                         )
                     }
                 </>
-                <TouchableOpacity onPress={() => setRecarregar(recarregar + 1)}>
+                <TouchableOpacity onPress={() => setRecarregar(true)}>
                     <Text style={styles.textoRecarregar}>Recarregar página</Text>
                 </TouchableOpacity>
 

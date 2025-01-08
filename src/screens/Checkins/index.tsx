@@ -84,7 +84,7 @@ export function Checkins() {
       <View style={styles.tableDado}>
         <Text style={styles.horarioTabela}>Dia: {item.dia} ({item.horarioInicio} - {item.horarioFim})</Text>
         <Text style={styles.localTabela}>Local: {item.local}</Text>
-        <Text style={styles.atividadeTabela}>Atividade: {item.nomeModalidade}</Text>
+        <Text style={styles.atividadeTabela}>Atividade: {item.nomeModalidade} {item.genero}</Text>
         <View style={styles.viewLinhaTabela}>
           {
             aux ? (
@@ -120,7 +120,7 @@ export function Checkins() {
 
       try {
         const response = await apiTreino.index({ idAluno: user?.data.id })
-        console.log(response.data.checkins)
+        console.log(response.data)
         setTreino(response.data.dados)
         setCheckins(response.data.checkins)
       } catch (error) {
