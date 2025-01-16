@@ -74,7 +74,7 @@ export function Inicio() {
                         <CustomButtonII title="Entrar" onPress={handleLogin} />
                     </View>
                     <View>
-                        <TouchableOpacity onPress={() =>  Linking.openURL('https://render-rqga.onrender.com/CadastroInicial')}>
+                        <TouchableOpacity onPress={() =>  Linking.openURL('https://sigeevarginha.com.br/CadastroInicial')}>
                             <Text style={styles.registrar}>Registrar-se</Text>
                         </TouchableOpacity>
                     </View>

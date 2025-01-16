@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "eu",
+    "name": "SIGEE",
     "slug": "eu",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,13 +15,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "buildNumber": "1"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "versionCode": 1,
+      "package": "com.leticiabrt.eu"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,6 +33,9 @@
       "eas": {
         "projectId": "1fe1f4e8-cc04-42b6-b4d0-498bcdb4a3f1"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }
